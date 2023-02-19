@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/data.dart';
+import '../widgets/recent_orders.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -73,7 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {},
                 )),
           ),
-        )
+        ),
+        RecentOrders(),
       ]),
     );
   }
