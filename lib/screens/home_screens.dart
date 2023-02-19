@@ -14,10 +14,12 @@ class _HomeScreenState extends State<HomeScreen> {
   _buildRestaurants() {
     List<Widget> restaurantList = [];
     restaurants.forEach((Restaurant restaurant) {
-      restaurantList.add(
-        GestureDetector(
-          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (_)=>RestaurantScreen(restaurant: restaurant))),
-          child: Container(
+      restaurantList.add(GestureDetector(
+        onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => RestaurantScreen(restaurant: restaurant))),
+        child: Container(
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
               color: Colors.white,
@@ -27,11 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
-                child: Image(
-                  image: AssetImage(restaurant.imageUrl),
-                  width: 150.0,
-                  height: 150.0,
-                  fit: BoxFit.cover,
+                child: Hero(
+                  tag: restaurant.imageUrl,
+                  child: Image(
+                    image: AssetImage(restaurant.imageUrl),
+                    width: 150.0,
+                    height: 150.0,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Container(
@@ -69,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
-              ),
-        ));
+        ),
+      ));
     });
     return Column(
       children: restaurantList,
