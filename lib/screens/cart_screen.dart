@@ -119,7 +119,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cart (${currentUser.cart.length})"),
+        title: Center(child: Text("Cart (${currentUser.cart.length})")),
       ),
       body: ListView.separated(
           itemBuilder: (BuildContext context, index) {
