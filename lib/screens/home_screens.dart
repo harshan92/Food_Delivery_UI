@@ -4,6 +4,7 @@ import 'package:food_delevery_app/screens/restaurant_screen.dart';
 import '../data/data.dart';
 import '../widgets/rating_stars.dart';
 import '../widgets/recent_orders.dart';
+import 'cart_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -95,7 +96,14 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: <Widget>[
             Stack(children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => CartScreen(),
+                      ));
+                  // Navigator.push(context, MaterialPageRoute(builder: (_)=>CartScreen())
+                },
                 icon: const Icon(
                   Icons.shopping_cart_rounded,
                   size: 30,
